@@ -42,7 +42,7 @@ export async function getStaticPaths() {
   return {
     // 특정 meetupId 값에 대한 페이지만 사전 생성하도록 설정할 수 있게 함 (방문이 잦은 페이지에만 적용하는 것이 좋고, 나머지는 요청이 입력되었을 때 동적으로 사전 생성)
     // fallback: false -> 지원되는 모든 paths를 정의했다고 설정
-    fallback: false,
+    fallback: "blocking",
     paths: meetups.map((meetup) => ({
       params: {
         meetupId: meetup._id.toString(),
